@@ -23,28 +23,28 @@ describe('Basic puppeteer test', () =>{
     browser.close();
   });
 
-  test('Should display the correct title', async () => {
+  test('Should display the correct title on the homepage', async () => {
     await page.waitForSelector('h1');
     const title = await page.$eval('h1', el => el.innerText);
     expect(title).toBe('GET THE ULTIMATE CYBERPUNK 2077 EXPERIENCE');
   });
 
-  test('Verify presence of menu', async () => {
+  test('Should contain a navigation menu', async () => {
     const menuList = await page.$('.menu-list');
     expect(menuList).not.toBeNull();
   });
 
-  test('Verify presence of menu items', async () => {
+  test('Should contain menu items in the navigation menu', async () => {
     const menuItems = await page.$$('.menu-item');
     expect(menuItems).not.toBeNull();
   });
   
-  test('Verify presence of buy now button in menu', async () => {
+  test('Should contain a "Buy Now" button in the navigation menu', async () => {
     const buyNowBtn = await page.$('.menu-list .menu-item a[href*="buy"]');
     expect(buyNowBtn).not.toBeNull();
   });
 
-  test('Verify presence of buy now button text', async () => {
+  test('The "Buy Now" button should have the correct text', async () => {
     const buyNowBtnText = await page.$eval('.menu-list .menu-item a[href*="buy"]', el => el.innerText);
     expect(buyNowBtnText).toBe("BUY NOW");
   });
