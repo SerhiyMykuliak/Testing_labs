@@ -165,7 +165,6 @@ describe('DELETE tests', () => {
   const petId = 5;
   let response;
 
-
   beforeAll(async () => {
     response = await axios.delete(`${BASE_URL}/pet/${petId}`);
   });
