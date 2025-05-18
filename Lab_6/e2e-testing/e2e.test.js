@@ -29,6 +29,7 @@ describe('Cyberpunk 2077 E2E Tests', () =>{
     await languageListDropdown.click();
 
     // Чекаємо, поки з'явиться список мов
+    await waitForSelector('.menu-item-lang ul li')
     const languageList = await page.$$('.menu-item-lang ul li');
     
     // Вибираємо мову
